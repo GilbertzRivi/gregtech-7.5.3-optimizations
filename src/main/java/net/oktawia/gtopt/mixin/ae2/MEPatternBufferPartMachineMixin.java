@@ -75,8 +75,7 @@ public abstract class MEPatternBufferPartMachineMixin implements IPatternBufferO
 
     @Inject(
             method = "<init>",
-            at = @At("TAIL")
-    )
+            at = @At("TAIL"))
     private void gtopt$initWorkers(IMachineBlockEntity holder, Object[] args, CallbackInfo ci) {
         MEPatternBufferPartMachine self = (MEPatternBufferPartMachine) (Object) this;
         gtopt$patternSlotDetails = new IPatternDetails[internalInventory.length];
@@ -92,8 +91,7 @@ public abstract class MEPatternBufferPartMachineMixin implements IPatternBufferO
 
     @Inject(
             method = "onLoad",
-            at = @At("TAIL")
-    )
+            at = @At("TAIL"))
     private void gtopt$decodePatternsOnLoad(CallbackInfo ci) {
         if (((MEPatternBufferPartMachine) (Object) this).getLevel() instanceof ServerLevel serverLevel) {
             serverLevel.getServer().tell(new TickTask(1, () -> {
@@ -111,8 +109,7 @@ public abstract class MEPatternBufferPartMachineMixin implements IPatternBufferO
     @Inject(
             method = "getRecipeHandlers",
             at = @At("HEAD"),
-            cancellable = true
-    )
+            cancellable = true)
     private void gtopt$useBufferHandler(CallbackInfoReturnable<List<RecipeHandlerList>> cir) {
         cir.setReturnValue(gtopt$bufferHandlers);
     }
@@ -120,8 +117,7 @@ public abstract class MEPatternBufferPartMachineMixin implements IPatternBufferO
     @Inject(
             method = "onPatternChange",
             at = @At("HEAD"),
-            cancellable = true
-    )
+            cancellable = true)
     private void gtopt$onPatternChange(int index, CallbackInfo ci) {
         ci.cancel();
         var self = (MEPatternBufferPartMachine) (Object) this;
@@ -147,8 +143,7 @@ public abstract class MEPatternBufferPartMachineMixin implements IPatternBufferO
     @Inject(
             method = "getAvailablePatterns",
             at = @At("HEAD"),
-            cancellable = true
-    )
+            cancellable = true)
     private void gtopt$getAvailablePatterns(CallbackInfoReturnable<List<IPatternDetails>> cir) {
         List<IPatternDetails> patterns = new ArrayList<>(gtopt$patternSlotDetails.length);
         for (IPatternDetails details : gtopt$patternSlotDetails) {
@@ -162,8 +157,7 @@ public abstract class MEPatternBufferPartMachineMixin implements IPatternBufferO
     @Inject(
             method = "pushPattern",
             at = @At("HEAD"),
-            cancellable = true
-    )
+            cancellable = true)
     private void gtopt$pushPattern(IPatternDetails patternDetails, KeyCounter[] inputHolder,
                                    CallbackInfoReturnable<Boolean> cir) {
         MEPatternBufferPartMachine self = (MEPatternBufferPartMachine) (Object) this;
@@ -213,24 +207,21 @@ public abstract class MEPatternBufferPartMachineMixin implements IPatternBufferO
 
     @Inject(
             method = "update",
-            at = @At("TAIL")
-    )
+            at = @At("TAIL"))
     private void gtopt$trimOnUpdate(CallbackInfo ci) {
         gtopt$trimSurplusWorkers();
     }
 
     @Inject(
             method = "addProxy",
-            at = @At("TAIL")
-    )
+            at = @At("TAIL"))
     private void gtopt$onProxyAdded(MEPatternBufferProxyPartMachine proxy, CallbackInfo ci) {
         gtopt$syncWorkerCount();
     }
 
     @Inject(
             method = "removeProxy",
-            at = @At("TAIL")
-    )
+            at = @At("TAIL"))
     private void gtopt$onProxyRemoved(MEPatternBufferProxyPartMachine proxy, CallbackInfo ci) {
         gtopt$syncWorkerCount();
     }

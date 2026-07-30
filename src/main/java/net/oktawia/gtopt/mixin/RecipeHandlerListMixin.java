@@ -19,9 +19,7 @@ public abstract class RecipeHandlerListMixin {
               method = "handleRecipe",
               at = @At(
                        value = "INVOKE",
-                       target = "Lcom/gregtechceu/gtceu/api/capability/recipe/IRecipeHandler;handleRecipe(Lcom/gregtechceu/gtceu/api/capability/recipe/IO;Lcom/gregtechceu/gtceu/api/recipe/GTRecipe;Ljava/util/List;Z)Ljava/util/List;"
-              )
-    )
+                       target = "Lcom/gregtechceu/gtceu/api/capability/recipe/IRecipeHandler;handleRecipe(Lcom/gregtechceu/gtceu/api/capability/recipe/IO;Lcom/gregtechceu/gtceu/api/recipe/GTRecipe;Ljava/util/List;Z)Ljava/util/List;"))
     private List<?> gtopt$skipEmptyInputHandler(IRecipeHandler<?> handler, IO io, GTRecipe recipe, List<?> left,
                                                 boolean simulate) {
         if (io == IO.IN && handler.getTotalContentAmount() == 0 &&

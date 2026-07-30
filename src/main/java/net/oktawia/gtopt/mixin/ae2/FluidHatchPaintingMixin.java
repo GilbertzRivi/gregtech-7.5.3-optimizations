@@ -14,8 +14,7 @@ public abstract class FluidHatchPaintingMixin {
 
     @Inject(
             method = "onPaintingColorChanged",
-            at = @At("RETURN")
-    )
+            at = @At("RETURN"))
     private void gtopt$validateStockingConfig(int color, CallbackInfo ci) {
         if (this instanceof IStockingPartOpt part && !part.self().isRemote()) {
             part.validateConfig();

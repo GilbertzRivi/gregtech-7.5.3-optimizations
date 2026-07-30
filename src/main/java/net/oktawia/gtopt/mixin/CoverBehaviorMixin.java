@@ -14,8 +14,7 @@ public abstract class CoverBehaviorMixin {
 
     @Inject(
             method = "onLoad",
-            at = @At("RETURN")
-    )
+            at = @At("RETURN"))
     private void gtopt$initControllerPolling(CallbackInfo ci) {
         if ((Object) this instanceof IMachineControllerPoll poll) {
             poll.gtopt$initPolling();

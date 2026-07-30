@@ -21,8 +21,7 @@ public abstract class MEBusPartMachineMixin {
 
     @Inject(
             method = "onMainNodeStateChanged",
-            at = @At("HEAD")
-    )
+            at = @At("HEAD"))
     private void gtopt$captureOnlineState(IGridNodeListener.State reason, CallbackInfo ci) {
         if (this instanceof IStockingPartOpt part) {
             gtopt$wasOnline = part.isOnline();
@@ -31,8 +30,7 @@ public abstract class MEBusPartMachineMixin {
 
     @Inject(
             method = "onMainNodeStateChanged",
-            at = @At("RETURN")
-    )
+            at = @At("RETURN"))
     private void gtopt$refreshOnStateChange(IGridNodeListener.State reason, CallbackInfo ci) {
         if (!(this instanceof IStockingPartOpt part) || part.isOnline() == gtopt$wasOnline) {
             return;

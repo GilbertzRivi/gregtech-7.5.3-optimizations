@@ -39,8 +39,7 @@ public abstract class MEPatternBufferProxyPartMachineMixin {
 
     @Inject(
             method = "<init>",
-            at = @At("TAIL")
-    )
+            at = @At("TAIL"))
     private void gtopt$initProxyHandler(IMachineBlockEntity holder, CallbackInfo ci) {
         gtopt$proxyHandler = new ProxyBufferRecipeHandlerList((MetaMachine) (Object) this);
         gtopt$proxyHandlers = List.of(gtopt$proxyHandler);
@@ -49,8 +48,7 @@ public abstract class MEPatternBufferProxyPartMachineMixin {
     @Inject(
             method = "getRecipeHandlers",
             at = @At("HEAD"),
-            cancellable = true
-    )
+            cancellable = true)
     private void gtopt$useProxyHandler(CallbackInfoReturnable<List<RecipeHandlerList>> cir) {
         gtopt$syncBuffer();
         cir.setReturnValue(gtopt$proxyHandlers);
@@ -58,16 +56,14 @@ public abstract class MEPatternBufferProxyPartMachineMixin {
 
     @Inject(
             method = "setBuffer",
-            at = @At("TAIL")
-    )
+            at = @At("TAIL"))
     private void gtopt$onBufferSet(BlockPos pos, CallbackInfo ci) {
         gtopt$syncBuffer();
     }
 
     @Inject(
             method = "onMachineRemoved",
-            at = @At("TAIL")
-    )
+            at = @At("TAIL"))
     private void gtopt$onMachineRemoved(CallbackInfo ci) {
         gtopt$proxyHandler.clearBuffer();
     }

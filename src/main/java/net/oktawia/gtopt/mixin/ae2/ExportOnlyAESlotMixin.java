@@ -51,8 +51,7 @@ public abstract class ExportOnlyAESlotMixin implements IStockSilent {
     @Inject(
             method = "setConfig",
             at = @At("HEAD"),
-            cancellable = true
-    )
+            cancellable = true)
     private void gtopt$rejectDuplicateConfig(GenericStack config, CallbackInfo ci) {
         if (this instanceof IStockingSlotOwner owner) {
             if (!owner.gtopt$isConfigAllowed(config)) {
@@ -65,8 +64,7 @@ public abstract class ExportOnlyAESlotMixin implements IStockSilent {
 
     @Inject(
             method = "setConfig",
-            at = @At("RETURN")
-    )
+            at = @At("RETURN"))
     private void gtopt$onConfigChanged(GenericStack config, CallbackInfo ci) {
         if (this instanceof IStockingSlotOwner owner && !Objects.equals(gtopt$previousConfig, this.config)) {
             owner.gtopt$notifyConfigChanged();

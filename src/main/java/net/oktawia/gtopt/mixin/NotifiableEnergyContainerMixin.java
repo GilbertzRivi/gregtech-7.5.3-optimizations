@@ -17,8 +17,7 @@ public abstract class NotifiableEnergyContainerMixin {
     @Inject(
             method = "getTotalContentAmount",
             at = @At("HEAD"),
-            cancellable = true
-    )
+            cancellable = true)
     private void gtopt$useEnergyGetter(CallbackInfoReturnable<Double> cir) {
         cir.setReturnValue((double) getEnergyStored());
     }

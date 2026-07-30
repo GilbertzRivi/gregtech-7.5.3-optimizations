@@ -34,8 +34,7 @@ public abstract class WorkableMultiblockMachineMixin implements IRecipeVersionHo
               method = "onStructureFormed",
               at = @At(
                        value = "INVOKE",
-                       target = "Lcom/gregtechceu/gtceu/api/machine/trait/RecipeHandlerList;subscribe(Ljava/lang/Runnable;)Lcom/lowdragmc/lowdraglib/syncdata/ISubscription;")
-    )
+                       target = "Lcom/gregtechceu/gtceu/api/machine/trait/RecipeHandlerList;subscribe(Ljava/lang/Runnable;)Lcom/lowdragmc/lowdraglib/syncdata/ISubscription;"))
     private ISubscription gtopt$trackVersions(RecipeHandlerList handlerList, Runnable listener) {
         RecipeCapabilityVersions versions = gtopt$getRecipeVersions();
         IO io = handlerList.getHandlerIO();
@@ -49,8 +48,7 @@ public abstract class WorkableMultiblockMachineMixin implements IRecipeVersionHo
 
     @Inject(
             method = { "onStructureInvalid", "onPartUnload" },
-            at = @At("RETURN")
-    )
+            at = @At("RETURN"))
     private void gtopt$invalidateVersions(CallbackInfo ci) {
         RecipeCapabilityVersions versions = gtopt$getRecipeVersions();
         versions.topologyVersion++;

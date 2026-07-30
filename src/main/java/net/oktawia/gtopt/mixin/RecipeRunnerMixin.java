@@ -38,8 +38,7 @@ public abstract class RecipeRunnerMixin {
 
     @Inject(
             method = "<init>",
-            at = @At("RETURN")
-    )
+            at = @At("RETURN"))
     private void gtopt$captureVersions(GTRecipe recipe, IO io, boolean isTick, IRecipeCapabilityHolder holder,
                                        Map<RecipeCapability<?>, Object2IntMap<?>> chanceCaches, boolean simulated,
                                        CallbackInfo ci) {
@@ -53,9 +52,7 @@ public abstract class RecipeRunnerMixin {
               at = @At(
                        value = "INVOKE",
                        target = "Ljava/util/Map;getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
-                       ordinal = 0
-              )
-    )
+                       ordinal = 0))
     private Object gtopt$skipHandlerRebuild(Map<Object, Object> proxies, Object key, Object defaultValue) {
         if (gtopt$hasValidCache()) {
             return Collections.emptyList();
@@ -64,13 +61,10 @@ public abstract class RecipeRunnerMixin {
     }
 
     @ModifyVariable(
-            method = "handleContents",
-            at = @At("STORE"),
-            name = "handlerGroups"
-    )
-    private Map<RecipeHandlerGroup, List<RecipeHandlerList>> gtopt$cacheHandlerGroups(Map<RecipeHandlerGroup,
-                                                                                      List<RecipeHandlerList>> handlerGroups
-    ) {
+                    method = "handleContents",
+                    at = @At("STORE"),
+                    name = "handlerGroups")
+    private Map<RecipeHandlerGroup, List<RecipeHandlerList>> gtopt$cacheHandlerGroups(Map<RecipeHandlerGroup, List<RecipeHandlerList>> handlerGroups) {
         if (gtopt$versions == null || io != IO.IN) {
             return handlerGroups;
         }

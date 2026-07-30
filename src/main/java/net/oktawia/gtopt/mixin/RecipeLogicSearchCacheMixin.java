@@ -47,9 +47,7 @@ public abstract class RecipeLogicSearchCacheMixin {
               at = @At(
                        value = "INVOKE",
                        target = "Lcom/gregtechceu/gtceu/api/machine/trait/RecipeLogic;findAndHandleRecipe()V",
-                       ordinal = 1
-              )
-    )
+                       ordinal = 1))
     private void gtopt$skipRepeatedEmptySearch(RecipeLogic self) {
         if (!(machine instanceof IRecipeVersionHolder holder)) {
             findAndHandleRecipe();
@@ -67,8 +65,7 @@ public abstract class RecipeLogicSearchCacheMixin {
 
     @Inject(
             method = "resetRecipeLogic",
-            at = @At("HEAD")
-    )
+            at = @At("HEAD"))
     private void gtopt$resetSearchCache(CallbackInfo ci) {
         gtopt$lastEmptySearchInputVersion = -1;
     }

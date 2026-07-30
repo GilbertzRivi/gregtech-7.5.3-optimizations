@@ -40,8 +40,7 @@ public abstract class MEPatternBufferInternalSlotMixin implements IBufferSlotOpt
 
     @Inject(
             method = "onContentsChanged()V",
-            at = @At("HEAD")
-    )
+            at = @At("HEAD"))
     private void gtopt$invalidateTypeCache(CallbackInfo ci) {
         gtopt$itemTypes = null;
         gtopt$fluidTypes = null;

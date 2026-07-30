@@ -32,8 +32,7 @@ public abstract class WorkableTieredMachineMixin implements IRecipeVersionHolder
               method = "onLoad",
               at = @At(
                        value = "INVOKE",
-                       target = "Lcom/gregtechceu/gtceu/api/machine/trait/RecipeHandlerList;subscribe(Ljava/lang/Runnable;)Lcom/lowdragmc/lowdraglib/syncdata/ISubscription;")
-    )
+                       target = "Lcom/gregtechceu/gtceu/api/machine/trait/RecipeHandlerList;subscribe(Ljava/lang/Runnable;)Lcom/lowdragmc/lowdraglib/syncdata/ISubscription;"))
     private ISubscription gtopt$trackVersions(RecipeHandlerList handlerList, Runnable listener) {
         RecipeCapabilityVersions versions = gtopt$getRecipeVersions();
         IO io = handlerList.getHandlerIO();

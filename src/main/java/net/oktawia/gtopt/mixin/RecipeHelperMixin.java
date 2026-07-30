@@ -23,8 +23,7 @@ public abstract class RecipeHelperMixin {
     @Inject(
             method = "handleRecipe",
             at = @At("HEAD"),
-            cancellable = true
-    )
+            cancellable = true)
     private static void gtopt$skipEmptyContents(IRecipeCapabilityHolder holder, GTRecipe recipe, IO io,
                                                 Map<RecipeCapability<?>, List<Content>> contents,
                                                 Map<RecipeCapability<?>, Object2IntMap<?>> chanceCaches,

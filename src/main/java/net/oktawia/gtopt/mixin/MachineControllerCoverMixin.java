@@ -43,8 +43,7 @@ public abstract class MachineControllerCoverMixin implements IMachineControllerP
 
     @Inject(
             method = "onAttached",
-            at = @At("RETURN")
-    )
+            at = @At("RETURN"))
     private void gtopt$startPollingOnAttach(ItemStack itemStack, ServerPlayer player, CallbackInfo ci) {
         if (GTOptConfig.disablePowerFailingByDefault()) {
             preventPowerFail = true;
@@ -54,8 +53,7 @@ public abstract class MachineControllerCoverMixin implements IMachineControllerP
 
     @Inject(
             method = "onRemoved",
-            at = @At("HEAD")
-    )
+            at = @At("HEAD"))
     private void gtopt$stopPolling(CallbackInfo ci) {
         if (gtopt$pollSub != null) {
             gtopt$pollSub.unsubscribe();

@@ -41,10 +41,8 @@ public abstract class RecipeLogicPowerFailMixin {
             at = @At(
                      value = "INVOKE",
                      target = "Lcom/gregtechceu/gtceu/api/machine/trait/RecipeLogic;setStatus(Lcom/gregtechceu/gtceu/api/machine/trait/RecipeLogic$Status;)V",
-                     ordinal = 1
-            ),
-            cancellable = true
-    )
+                     ordinal = 1),
+            cancellable = true)
     private void gtopt$onPreventPowerFailDefault(CallbackInfo ci) {
         if (GTOptConfig.disablePowerFailingByDefault() && !gtopt$anyExplicitlyDisabled()) {
             ci.cancel();
@@ -53,8 +51,7 @@ public abstract class RecipeLogicPowerFailMixin {
 
     @Inject(
             method = "onMachineLoad",
-            at = @At("RETURN")
-    )
+            at = @At("RETURN"))
     private void gtopt$restartSuspendedOnLoad(CallbackInfo ci) {
         if (GTOptConfig.disablePowerFailingByDefault() && isSuspend() && !gtopt$anyExplicitlyDisabled() &&
                 machine.isWorkingEnabled()) {
