@@ -1,0 +1,42 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.oktawia.gtopt.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "mixins.gtopt.refmap.json",
+  "plugin": "net.oktawia.gtopt.mixin.GTOptMixinPlugin",
+  "mixins": [
+    "CoverBehaviorMixin",
+    "MachineControllerCoverMixin",
+    "NotifiableEnergyContainerMixin",
+    "RecipeHandlerListMixin",
+    "RecipeHelperMixin",
+    "RecipeLogicPowerFailMixin",
+    "RecipeLogicSearchCacheMixin",
+    "RecipeRunnerMixin",
+    "SteamWorkableMachineMixin",
+    "WorkableMultiblockMachineMixin",
+    "WorkableTieredMachineMixin",
+    "ae2.ExportOnlyAESlotMixin",
+    "ae2.FluidHatchPaintingMixin",
+    "ae2.ItemBusPaintingMixin",
+    "ae2.MEBusPartMachineMixin",
+    "ae2.MEHatchPartMachineMixin",
+    "ae2.MEPatternBufferInternalSlotMixin",
+    "ae2.MEPatternBufferPartMachineMixin",
+    "ae2.MEPatternBufferProxyPartMachineMixin",
+    "ae2.MEStockingBusPartMachineMixin",
+    "ae2.MEStockingHatchPartMachineMixin",
+    "ae2.StockingFluidSlotMixin",
+    "ae2.StockingItemSlotMixin",
+    "ae2.accessors.AeFluidHandlerAccessor",
+    "ae2.accessors.AeItemHandlerAccessor",
+    "ae2.accessors.BusActionSourceAccessor",
+    "ae2.accessors.HatchActionSourceAccessor",
+    "ae2.invokers.MEBusSubscriptionInvoker",
+    "ae2.invokers.MEHatchSubscriptionInvoker"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
